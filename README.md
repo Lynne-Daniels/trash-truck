@@ -19,7 +19,7 @@ docker-compose build
 docker-compose up
 ```
 
-The app will be accessible at [http://localhost:3000/](http://localhost:3000/). The local src directory will be mounted into the container for live updates.
+The app will be run in development mode and accessible at [http://localhost:3000/](http://localhost:3000/). The local src directory will be mounted into the container for live updates.
 
 ### Running the App for Deployment
 
