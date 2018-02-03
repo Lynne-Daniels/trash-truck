@@ -24,7 +24,7 @@ The app will be accessible at [http://localhost:3000/](http://localhost:3000/). 
 ### Running the App for Deployment
 
 ```
-docker run -p 5000:5000 --name trash-truck trash-truck:master
+COMPOSE_FILE=trash-truck.yml docker-compose up
 ```
 
 The app will be accessible at [http://localhost:5000/](http://localhost:5000/).
