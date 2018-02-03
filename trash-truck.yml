@@ -4,10 +4,4 @@ services:
   web:
     image: ${TRASH_TRUCK_REGISTRY}trash-truck:${TRASH_TRUCK_TAG}
     ports:
-      - 3000:3000
       - 5000:5000
-    volumes:
-      - ./src/trash-truck:/src/trash-truck
-    command:
-      - npm
-      - start
