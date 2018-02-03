@@ -2,6 +2,8 @@
 
 ## Getting a Location from an Address
 
+[Functional Example: Search](https://developer.tomtom.com/maps-sdk-web/functional-examples#search)
+
 ```javascript
 tomtom.key("mnMk46OLQEfPluQYl5aW9Zw9BdhSltxC");
 
