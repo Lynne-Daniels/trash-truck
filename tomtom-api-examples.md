@@ -69,3 +69,106 @@ Contents of `geoResponses`:
   }
 ]
 ```
+
+## Computing Best Route for a List of Locations
+
+```javascript
+tomtom.key("mnMk46OLQEfPluQYl5aW9Zw9BdhSltxC");
+
+var locations = "37.787847,-122.416203:37.790700,-122.409453:" +
+                "37.792845,-122.407136:37.795227,-122.403134:" +
+                "37.795753,-122.407308:37.784180,-122.409157:" +
+                "37.785490,-122.405674";
+var call;
+
+call = tomtom.routing().locations(locations);
+
+call.go().then(function(route) {
+    …
+});
+```
+
+Contents of `route`:
+
+```json
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [[-122.41628, 37.78824], [-122.41683, 37.78817], [-122.41847, 37.78797], … ],
+          [[-122.40951, 37.79101], [-122.40967, 37.79099], [-122.41025, 37.79093], … ],
+          [[-122.40729, 37.79282], [-122.40732, 37.79297], [-122.40737, 37.79323], … ],
+          [[-122.40326, 37.79521], [-122.40323, 37.79507], [-122.40314, 37.79467], … ],
+          [[-122.40742, 37.79574], [-122.40737, 37.79547], [-122.40729, 37.79504], … ],
+          [[-122.40928, 37.78416], [-122.40913, 37.78343], [-122.40967, 37.78336], … ]
+        ]
+      },
+      "properties": {
+        "summary": {
+          "lengthInMeters": 7124,
+          "travelTimeInSeconds": 2542,
+          "trafficDelayInSeconds": 0,
+          "departureTime": "2018-02-03T15:24:10-08:00",
+          "arrivalTime": "2018-02-03T16:06:31-08:00"
+        },
+        "sections": [
+          {
+            "startPointIndex": 0,
+            "endPointIndex": 154,
+            "sectionType": "TRAVEL_MODE",
+            "travelMode": "car"
+          }
+        ],
+        "segmentSummary": [
+          {
+            "lengthInMeters": 1611,
+            "travelTimeInSeconds": 371,
+            "trafficDelayInSeconds": 0,
+            "departureTime": "2018-02-03T15:24:10-08:00",
+            "arrivalTime": "2018-02-03T15:30:20-08:00"
+          },
+          {
+            "lengthInMeters": 1113,
+            "travelTimeInSeconds": 387,
+            "trafficDelayInSeconds": 0,
+            "departureTime": "2018-02-03T15:30:20-08:00",
+            "arrivalTime": "2018-02-03T15:36:47-08:00"
+          },
+          {
+            "lengthInMeters": 883,
+            "travelTimeInSeconds": 367,
+            "trafficDelayInSeconds": 0,
+            "departureTime": "2018-02-03T15:36:47-08:00",
+            "arrivalTime": "2018-02-03T15:42:54-08:00"
+          },
+          {
+            "lengthInMeters": 971,
+            "travelTimeInSeconds": 407,
+            "trafficDelayInSeconds": 0,
+            "departureTime": "2018-02-03T15:42:54-08:00",
+            "arrivalTime": "2018-02-03T15:49:41-08:00"
+          },
+          {
+            "lengthInMeters": 1610,
+            "travelTimeInSeconds": 640,
+            "trafficDelayInSeconds": 0,
+            "departureTime": "2018-02-03T15:49:41-08:00",
+            "arrivalTime": "2018-02-03T16:00:21-08:00"
+          },
+          {
+            "lengthInMeters": 936,
+            "travelTimeInSeconds": 371,
+            "trafficDelayInSeconds": 0,
+            "departureTime": "2018-02-03T16:00:21-08:00",
+            "arrivalTime": "2018-02-03T16:06:31-08:00"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
