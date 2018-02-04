@@ -3,6 +3,7 @@
 ## Getting a Location from an Address
 
 [Functional Example: Search](https://developer.tomtom.com/maps-sdk-web/functional-examples#search)
+[API Documentation: fuzzySearch()](https://api.tomtom.com/maps-sdk-js/4.19.5/documentation/classes/tomtom.html#method_fuzzySearch)
 
 ```javascript
 tomtom.key("mnMk46OLQEfPluQYl5aW9Zw9BdhSltxC");
