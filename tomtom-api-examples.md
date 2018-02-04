@@ -74,7 +74,10 @@ Contents of `geoResponses`:
 ## Computing Best Route for a List of Locations
 
 [Functional Example: Routing](https://developer.tomtom.com/maps-sdk-web/functional-examples#routing)
+
 [API Documentation: routing()](https://api.tomtom.com/maps-sdk-js/4.19.5/documentation/classes/tomtom.html#method_routing)
+
+[Routing class](https://api.tomtom.com/maps-sdk-js/4.19.5/documentation/classes/Routing.html)
 
 ```javascript
 tomtom.key("mnMk46OLQEfPluQYl5aW9Zw9BdhSltxC");
