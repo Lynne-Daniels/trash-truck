@@ -36,6 +36,7 @@ var createCustomers = function() {
       })
         .then(function(response) {
           console.log(response);
+          window.location.replace("/loggedIn.html")
           return response;
         })
       geoResponses[0].position.lat
