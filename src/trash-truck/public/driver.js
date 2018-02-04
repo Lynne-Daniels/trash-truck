@@ -94,3 +94,7 @@ function nextSegment() {
         });
     }
 }
+
+function overview() {
+    map.fitBounds(overallRoute.getBounds(), {padding: [5, 5]});    
+}
