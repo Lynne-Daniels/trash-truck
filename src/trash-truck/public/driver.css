@@ -14,7 +14,8 @@ body {
 }
 
 #address {
-    padding: 0 12px;
+    padding: 0 0 0 18px;
+    font-weight: bold;
 }
 
 #controls {
@@ -35,6 +36,7 @@ body {
     padding: 0;
     text-align: center;
     flex-grow: 1;
+    cursor: pointer;
 }
 
 li#next {

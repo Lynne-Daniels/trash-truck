@@ -72,7 +72,12 @@ function nextSegment() {
             document.getElementById("next").innerText = "Done"
         }
 
-        console.log("startPoint = " + startPoint + ", endPoint = " + endPoint);
+        // console.log("startPoint = " + startPoint + ", endPoint = " + endPoint);
+        tomtom.reverseGeocode().position(endPoint)
+        .go()
+        .then(function(geoResponse) {
+            document.getElementById("address").innerText = geoResponse.address.streetNameAndNumber;
+        });
 
         currentSegmentIndex += 1;
 
@@ -88,4 +93,8 @@ function nextSegment() {
             map.fitBounds(currentRoute.getBounds(), {padding: [5, 5]});
         });
     }
+}
+
+function overview() {
+    map.fitBounds(overallRoute.getBounds(), {padding: [5, 5]});    
 }
