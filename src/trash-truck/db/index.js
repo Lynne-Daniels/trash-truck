@@ -23,3 +23,16 @@ let insertUser = (firstName, lastName, address) => {
         }
     });
 }
+
+let getAllUsers = () => {
+  User.find(function(err, users) {
+    if (err) return console.error(err);
+    console.log(users);
+    return users;
+  })
+}
+
+module.exports = {
+  getAllUsers,
+  insertUser,
+}
