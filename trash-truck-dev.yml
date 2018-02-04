@@ -1,6 +1,10 @@
 version: "3.4"
 
 services:
+  mongodb:
+    volumes:
+      - ./db-data:/data/db
+
   web:
     image: ${TRASH_TRUCK_REGISTRY}trash-truck:${TRASH_TRUCK_TAG}
     build: ./
