@@ -86,6 +86,8 @@ var locations = "37.787847,-122.416203:37.790700,-122.409453:" +
 var call;
 
 call = tomtom.routing().locations(locations);
+call.travelMode('car');
+call.traffic(true);
 
 call.go().then(function(route) {
     …
