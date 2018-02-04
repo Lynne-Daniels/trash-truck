@@ -74,7 +74,10 @@ Contents of `geoResponses`:
 ## Computing Best Route for a List of Locations
 
 [Functional Example: Routing](https://developer.tomtom.com/maps-sdk-web/functional-examples#routing)
+
 [API Documentation: routing()](https://api.tomtom.com/maps-sdk-js/4.19.5/documentation/classes/tomtom.html#method_routing)
+
+[Routing class](https://api.tomtom.com/maps-sdk-js/4.19.5/documentation/classes/Routing.html)
 
 ```javascript
 tomtom.key("mnMk46OLQEfPluQYl5aW9Zw9BdhSltxC");
@@ -84,6 +87,9 @@ var locations = "37.787847,-122.416203:37.790700,-122.409453:" +
                 "37.792845,-122.407136:37.795227,-122.403134:" +
                 "37.795753,-122.407308:37.784180,-122.409157:" +
                 "37.785490,-122.405674";
+var options = {
+  computeBestOrder: true
+};
 var call;
 
 call = tomtom.routing().locations(locations);
