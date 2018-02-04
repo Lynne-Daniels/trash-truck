@@ -78,6 +78,7 @@ Contents of `geoResponses`:
 ```javascript
 tomtom.key("mnMk46OLQEfPluQYl5aW9Zw9BdhSltxC");
 
+// colon separated string of lat/long coordinates
 var locations = "37.787847,-122.416203:37.790700,-122.409453:" +
                 "37.792845,-122.407136:37.795227,-122.403134:" +
                 "37.795753,-122.407308:37.784180,-122.409157:" +
