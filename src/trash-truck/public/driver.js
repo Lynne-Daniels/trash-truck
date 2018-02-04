@@ -1,12 +1,4 @@
-var locations = [
-    "37.787847,-122.416203",
-    "37.790700,-122.409453",
-    "37.792845,-122.407136",
-    "37.795227,-122.403134",
-    "37.795753,-122.407308",
-    "37.784180,-122.409157",
-    "37.785490,-122.405674"
-];
+var customers = null;
 
 var routeData = null;
 var overallRoute = null;
@@ -33,26 +25,36 @@ var map = tomtom.map("map", {
     key: "mnMk46OLQEfPluQYl5aW9Zw9BdhSltxC"
 });
 
-var locationsString = locations.join(":");
-var options = {
-    computeBestOrder: true
-};
+fetch("/customer.json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(jsonResponse) {
+    customers = jsonResponse;
 
-tomtom.routing(options).locations(locationsString)
-.travelMode('car')
-.traffic(true)
-.go()
-.then(function(routeJson) {
-    routeData = routeJson;
-    overallRoute = tomtom.L.geoJson(routeJson, {
-        onEachFeature: addMarkers,
-        style: {color: '#0000ff', opacity: 0.8}
-    }).addTo(map);
-    map.fitBounds(overallRoute.getBounds(), {padding: [5, 5]});
-});
+    var locationsString = customers.map(function(customer) {
+        return customer.coordinates.lat + "," + customer.coordinates.long;
+    }).join(":");
+    var options = {
+        computeBestOrder: true
+    };
+
+    tomtom.routing(options).locations(locationsString)
+    .travelMode('car')
+    .traffic(true)
+    .go()
+    .then(function(routeJson) {
+        routeData = routeJson;
+        overallRoute = tomtom.L.geoJson(routeJson, {
+            onEachFeature: addMarkers,
+            style: {color: '#0000ff', opacity: 0.8}
+        }).addTo(map);
+        map.fitBounds(overallRoute.getBounds(), {padding: [5, 5]});
+    });
+  });
 
 function nextSegment() {
-    if (currentSegmentIndex < (locations.length - 1)) {
+    if (currentSegmentIndex < (customers.length - 1)) {
         if (currentRoute) {
             currentRoute.remove();
         }
@@ -64,8 +66,10 @@ function nextSegment() {
 
         if (currentSegmentIndex == 0) {
             startPoint = startPoint.reverse();
-        } else if (currentSegmentIndex == (locations.length - 2)) {
+            document.getElementById("next").innerText = "Next"
+        } else if (currentSegmentIndex == (customers.length - 2)) {
             endPoint = endPoint.reverse();
+            document.getElementById("next").innerText = "Done"
         }
 
         console.log("startPoint = " + startPoint + ", endPoint = " + endPoint);
