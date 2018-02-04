@@ -178,3 +178,5 @@ Contents of `route`:
   ]
 }
 ```
+
+The `segmentSummary` object has `arrivalTime` and `departureTime` properties for each segment. Perhaps we can use them to notify customers of potential garbage pickup time.
