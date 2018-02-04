@@ -1,10 +1,22 @@
 version: "3.4"
 
 services:
-  mongo:
-    image: "mongo"
+  mongodb:
+    image: mongo:3.6.2
+    ports:
+      - 27017:27017
+    volumes:
+      - db-data:/data/db
+
+  restheart:
+    image: softinstigate/restheart:3.2.1
+    ports:
+      - 8080:8080
 
   web:
     image: ${TRASH_TRUCK_REGISTRY}trash-truck:${TRASH_TRUCK_TAG}
     ports:
       - 5000:5000
+
+volumes:
+  db-data:
