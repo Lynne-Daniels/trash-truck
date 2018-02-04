@@ -64,8 +64,10 @@ function nextSegment() {
 
         if (currentSegmentIndex == 0) {
             startPoint = startPoint.reverse();
+            document.getElementById("next").innerText = "Next"
         } else if (currentSegmentIndex == (locations.length - 2)) {
             endPoint = endPoint.reverse();
+            document.getElementById("next").innerText = "Done"
         }
 
         console.log("startPoint = " + startPoint + ", endPoint = " + endPoint);
