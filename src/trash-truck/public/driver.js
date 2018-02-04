@@ -25,12 +25,17 @@ var map = tomtom.map("map", {
     key: "mnMk46OLQEfPluQYl5aW9Zw9BdhSltxC"
 });
 
-fetch("/customer.json")
+fetch("http://127.0.0.1:8080/trashdb/customers/", {
+    credentials: "include",
+    headers: {
+        "Authorization": "Basic YWRtaW46Y2hhbmdlaXQ="
+    }
+})
   .then(function(response) {
     return response.json();
   })
   .then(function(jsonResponse) {
-    customers = jsonResponse;
+    customers = jsonResponse._embedded;
 
     var locationsString = customers.map(function(customer) {
         return customer.coordinates.lat + "," + customer.coordinates.long;
