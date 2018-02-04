@@ -5,6 +5,8 @@ services:
     image: mongo:3.6.2
     ports:
       - 27017:27017
+    volumes:
+      - db-data:/data/db
 
   restheart:
     image: softinstigate/restheart:3.2.1
@@ -15,3 +17,6 @@ services:
     image: ${TRASH_TRUCK_REGISTRY}trash-truck:${TRASH_TRUCK_TAG}
     ports:
       - 5000:5000
+
+volumes:
+  db-data:
