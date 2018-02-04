@@ -13,8 +13,8 @@ var overallRoute = null;
 var currentRoute = null;
 var currentSegmentIndex = 0;
 
-var startIcon = tomtom.L.icon({iconUrl: '/jssdk-4/images/start-black.png', iconSize: [30, 30], iconAnchor: [15, 15]});
-var endIcon = tomtom.L.icon({iconUrl: '/jssdk-4/images/end-black.png', iconSize: [30, 30], iconAnchor: [15, 15]});
+var startIcon = tomtom.L.icon({iconUrl: '/jssdk-4/images/start.png', iconSize: [30, 30], iconAnchor: [15, 15]});
+var endIcon = tomtom.L.icon({iconUrl: '/jssdk-4/images/end.png', iconSize: [30, 30], iconAnchor: [15, 15]});
 
 function addMarkers(feature) {
     var startPoint, endPoint;
