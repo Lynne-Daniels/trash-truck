@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 var userSchema = mongoose.Schema({
   firstName: String,
   lastName: String,
@@ -5,3 +7,5 @@ var userSchema = mongoose.Schema({
   country: String,
   city: String,
 });
+
+module.exports = mongoose.model("User", userSchema);
